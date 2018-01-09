@@ -6,7 +6,7 @@ grad_fortifications_packUpTimeFactor = [(missionConfigFile >> "CfgGradFortificat
 grad_fortifications_playerInventorySize = [(missionConfigFile >> "CfgGradFortifications" >> "playerInventorySize"),"number",70] call CBA_fnc_getConfigEntry;
 grad_fortifications_boundingBoxSizeFactor = [(missionConfigFile >> "CfgGradFortifications" >> "boundingBoxSizeFactor"),"number",1] call CBA_fnc_getConfigEntry;
 grad_fortifications_vehicleInventorySizeFactor = [(missionConfigFile >> "CfgGradFortifications" >> "vehicleInventorySizeFactor"),"number",1] call CBA_fnc_getConfigEntry;
-grad_fortifications_fortificationOwnerType = [(missionConfigFile >> "CfgGradFortifications" >> "fortificationOwner"),"text","BUILDER"] call CBA_fnc_getConfigEntry;
+grad_fortifications_fortificationOwnerType = [(missionConfigFile >> "CfgGradFortifications" >> "fortificationOwnerType"),"text","BUILDER"] call CBA_fnc_getConfigEntry;
 
 if (hasInterface) then {
     if (isNil {player getVariable "grad_fortifications_myFortsHash"}) then {player setVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]};
