@@ -1,22 +1,23 @@
 params ["_fort","_owner"];
 
-if (!hasInterface) exitWith {};
 if (isNull _fort) exitWith {};
-
-_type = typeOf _fort;
-if ([_type] call grad_fortifications_fnc_isVehicle) exitWith {};
 
 switch (grad_fortifications_fortificationOwnerType) do {
     case ("BUILDER"): {
-        _fort setVariable ["grad_fortifications_fortOwner",_owner,false];
+        _fort setVariable ["grad_fortifications_fortOwner",_owner,true];
     };
     case ("GROUP"): {
-        _fort setVariable ["grad_fortifications_fortOwner",group _owner,false];
+        _fort setVariable ["grad_fortifications_fortOwner",group _owner,true];
     };
     case ("SIDE"): {
-        _fort setVariable ["grad_fortifications_fortOwner",side _owner,false];
+        _fort setVariable ["grad_fortifications_fortOwner",side _owner,true];
     };
 };
+
+if (!hasInterface) exitWith {};
+
+_type = typeOf _fort;
+if ([_type] call grad_fortifications_fnc_isVehicle) exitWith {};
 
 //demolition
 _canDemolish = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "canDemolish"),"number",1] call CBA_fnc_getConfigEntry) == 1;
